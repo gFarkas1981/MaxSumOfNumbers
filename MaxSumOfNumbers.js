@@ -1,9 +1,32 @@
 //Prime number checking
-//has it  only two distinct divisors: 1 and itself
-function isPrime(number) {
+//has it only two distinct divisors: 1 and itself
+/*function isPrime(number) {
     for (var i = 2; i < number; i++)
         if (number % i === 0) return false; //false if it's divisable by anything else
     return number !== 1 && number !== 0; //true if number is not zero or one
+}*/
+
+//Prime checker new version (faster)
+function isPrime(number) {
+    var isPrime = false;
+    var divider = 0;
+
+    if (number < 8) {
+        if (number === 2 || number === 3 || number === 5 || number === 7) { //they are primes for sure
+            isPrime = true;
+        }
+    } else {
+        let examinedNumbers = parseInt(Math.sqrt(number)); //it's enough to examine the dividers until the square root plus one of the number
+        for (let x = 2; x < examinedNumbers + 1; x++) {
+            if (number % x === 0) {
+                divider++;
+            }
+        }
+        if (divider === 0) {
+            isPrime = true;
+        }
+    }
+    return isPrime;
 }
 
 
@@ -26,7 +49,7 @@ var longArray = [
     218, 935, 347, 235,
     320, 804, 522, 417, 345,
     229, 601, 723, 835, 133, 124,
-    248, 202, 277, 433, 207, 263, 257,
+    248, 202, 10000, 433, 207, 263, 257,
     359, 464, 504, 528, 516, 716, 871, 182,
     461, 441, 426, 656, 863, 560, 380, 171, 923,
     381, 348, 573, 533, 447, 632, 387, 176, 975, 449,
@@ -43,7 +66,7 @@ var longArray2 = [
     218, 935, 347, 235,
     320, 804, 522, 417, 345,
     229, 601, 723, 835, 133, 124,
-    248, 202, 277, 433, 207, 263, 257,
+    248, 202, 10000, 433, 207, 263, 257,
     359, 464, 504, 528, 516, 716, 871, 182,
     461, 441, 426, 656, 863, 560, 380, 171, 923,
     381, 348, 573, 533, 447, 632, 387, 176, 975, 449,
@@ -74,9 +97,9 @@ document.write(" a = max(b,c) We need to start from the bottom of the triangle <
 document.write(" In the next to the last row each element should equal to the maximum value of the two elements in the last row which are below this element + self. <br>");
 document.write(" eg. a = max(b,c) => max(8,5) = 8 =>	8 + 2 = 10 <br>");
 document.write(" We must micrify values which are primes <br>");
-document.write(" The last row (8 5 9 3) will be 8 -1000 9 -1000 <br>");
-document.write(" max(-1000,9) = 9 => 9 + 6 = 15 <br>");
-document.write(" max(9,-1000) = 9 => 9 + 9 = 18 <br>");
+document.write(" The last row (8 5 9 3) will be 8 0 9 0 <br>");
+document.write(" max(0,9) = 9 => 9 + 6 = 15 <br>");
+document.write(" max(9,0) = 9 => 9 + 9 = 18 <br>");
 document.write("*1 <br>");
 document.write("8 4 <br>");
 document.write("-992 15 18 <br>");
@@ -102,8 +125,8 @@ function maximumSumOfTheNumbers(array1, array2) {
     document.write("Triangle with primes:  <br>" + ot2 + "<br>");
     for (var countot2 = 0; countot2 < ot2.length; countot2++) { //loop through "Orthogonal Triangle" array to micrify values which are primes
         if (isPrime(ot2[countot2])) { //if actual element of the array is prime
-            ot[countot2] = -1000; //be -1000
-            ot2[countot2] = -1000; //be -1000
+            ot[countot2] = 0; //be 0
+            ot2[countot2] = 0; //be 0
         }
     }
     document.write("Triangle without primes: <br>" + ot2 + "<br>");
