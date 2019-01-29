@@ -98,13 +98,14 @@ document.write(" In the next to the last row each element should equal to the ma
 document.write(" eg. a = max(b,c) => max(8,5) = 8 =>	8 + 2 = 10 <br>");
 document.write(" We must micrify values which are primes <br>");
 document.write(" The last row (8 5 9 3) will be 8 0 9 0 <br>");
+document.write(" max(8,0) = 8 => 8 + 2 = 10 <br>");
 document.write(" max(0,9) = 9 => 9 + 6 = 15 <br>");
 document.write(" max(9,0) = 9 => 9 + 9 = 18 <br>");
 document.write("*1 <br>");
 document.write("8 4 <br>");
-document.write("-992 15 18 <br>");
+document.write("10 15 18 <br>");
 document.write("<br>");
-document.write(" max(-992,15) = 15 => 15 + 8 = 23 <br>");
+document.write(" max(10,15) = 15 => 15 + 8 = 23 <br>");
 document.write(" max(15,18) = 18 => 18 + 4 = 22 <br>");
 document.write("1 <br>");
 document.write("23 22 <br>");
