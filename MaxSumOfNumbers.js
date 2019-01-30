@@ -1,10 +1,10 @@
 //Prime number checking
-//has it only two distinct divisors: 1 and itself
-/*function isPrime(number) {
-    for (var i = 2; i < number; i++)
-        if (number % i === 0) return false; //false if it's divisable by anything else
-    return number !== 1 && number !== 0; //true if number is not zero or one
-}*/
+//has it  only two distinct divisors: 1 and itself
+// function isPrime(number) {
+//     for (var i = 2; i < number; i++)
+//         if (number % i === 0) return false; //false if it's divisable by anything else
+//     return number !== 1 && number !== 0; //true if number is not zero or one
+// }
 
 //Prime checker new version (faster)
 function isPrime(number) {
@@ -29,17 +29,16 @@ function isPrime(number) {
     return isPrime;
 }
 
+//		1
+//	   8 4
+//	  2 6 9
+//   8 5 9 3
 
-
-//		*1
-//	 *8 4
-//	2 *6 9
-// 8 5 *9 3
 
 
 //input numbers from file to "Orthogonal Triangle" array
-var shortArray = [1, 8, 4, 2, 6, 9, 8, 5, 9, 3];
-var shortArray2 = [1, 8, 4, 2, 6, 9, 8, 5, 9, 3];
+var shortArray = [1, 8, 4, 2, 6, 9, 8, 5, 9, 3, 11, 11, 100,11, 11, 11, 11, 11,11, 11,11];
+var shortArray2 = [1, 8, 4, 2, 6, 9, 8, 5, 9, 3, 11, 11, 100,11, 11, 11, 11, 11,11, 11,11];
 
 
 var longArray = [
@@ -49,7 +48,24 @@ var longArray = [
     218, 935, 347, 235,
     320, 804, 522, 417, 345,
     229, 601, 723, 835, 133, 124,
-    248, 202, 10000, 433, 207, 263, 257,
+    248, 202, 277, 433, 207, 263, 257,
+    359, 464, 504, 528, 516, 716, 871, 182,
+    461, 441, 426, 656, 863, 560, 380, 171, 923,
+    381, 348, 573, 533, 447, 632, 387, 176, 975, 449,
+    223, 711, 445, 645, 245, 543, 931, 532, 937, 541, 444,
+    330, 131, 333, 928, 377, 733, 17, 778, 839, 168, 197, 197,
+    131, 171, 522, 137, 217, 224, 291, 413, 528, 520, 227, 229, 928,
+    223, 626, 34,  683, 839, 53, 627, 310, 713, 999, 629, 817, 410, 121,
+    924, 622, 911, 233, 325, 139, 721, 218, 253, 223, 107, 233, 230, 124, 233
+];
+var longArray2 = [
+    215,
+    193, 124,
+    117, 237, 442,
+    218, 935, 347, 235,
+    320, 804, 522, 417, 345,
+    229, 601, 723, 835, 133, 124,
+    248, 202, 277, 433, 207, 263, 257,
     359, 464, 504, 528, 516, 716, 871, 182,
     461, 441, 426, 656, 863, 560, 380, 171, 923,
     381, 348, 573, 533, 447, 632, 387, 176, 975, 449,
@@ -59,7 +75,8 @@ var longArray = [
     223, 626, 34, 683, 839, 53, 627, 310, 713, 999, 629, 817, 410, 121,
     924, 622, 911, 233, 325, 139, 721, 218, 253, 223, 107, 233, 230, 124, 233
 ];
-var longArray2 = [
+
+var modifiedlongArray = [
     215,
     193, 124,
     117, 237, 442,
@@ -73,7 +90,24 @@ var longArray2 = [
     223, 711, 445, 645, 245, 543, 931, 532, 937, 541, 444,
     330, 131, 333, 928, 377, 733, 17, 778, 839, 168, 197, 197,
     131, 171, 522, 137, 217, 224, 291, 413, 528, 520, 227, 229, 928,
-    223, 626, 34, 683, 839, 53, 627, 310, 713, 999, 629, 817, 410, 121,
+    223, 626, 10000, 683, 839, 53, 627, 310, 713, 999, 629, 817, 410, 121,
+    924, 622, 911, 233, 325, 139, 721, 218, 253, 223, 107, 233, 230, 124, 233
+];
+var modifiedlongArray2 = [
+    215,
+    193, 124,
+    117, 237, 442,
+    218, 935, 347, 235,
+    320, 804, 522, 417, 345,
+    229, 601, 723, 835, 133, 124,
+    248, 202, 10000, 433, 207, 263, 257,
+    359, 464, 504, 528, 516, 716, 871, 182,
+    461, 441, 426, 656, 863, 560, 380, 171, 923,
+    381, 348, 573, 533, 447, 632, 387, 176, 975, 449,
+    223, 711, 445, 645, 245, 543, 931, 532, 937, 541, 444,
+    330, 131, 333, 928, 377, 733, 17, 778, 839, 168, 197, 197,
+    131, 171, 522, 137, 217, 224, 291, 413, 528, 520, 227, 229, 928,
+    223, 626, 10000, 683, 839, 53, 627, 310, 713, 999, 629, 817, 410, 121,
     924, 622, 911, 233, 325, 139, 721, 218, 253, 223, 107, 233, 230, 124, 233
 ];
 
@@ -97,15 +131,14 @@ document.write(" a = max(b,c) We need to start from the bottom of the triangle <
 document.write(" In the next to the last row each element should equal to the maximum value of the two elements in the last row which are below this element + self. <br>");
 document.write(" eg. a = max(b,c) => max(8,5) = 8 =>	8 + 2 = 10 <br>");
 document.write(" We must micrify values which are primes <br>");
-document.write(" The last row (8 5 9 3) will be 8 0 9 0 <br>");
-document.write(" max(8,0) = 8 => 8 + 2 = 10 <br>");
-document.write(" max(0,9) = 9 => 9 + 6 = 15 <br>");
-document.write(" max(9,0) = 9 => 9 + 9 = 18 <br>");
+document.write(" The last row (8 5 9 3) will be 8 -1000 9 -1000 <br>");
+document.write(" max(-1000,9) = 9 => 9 + 6 = 15 <br>");
+document.write(" max(9,-1000) = 9 => 9 + 9 = 18 <br>");
 document.write("*1 <br>");
 document.write("8 4 <br>");
-document.write("10 15 18 <br>");
+document.write("-992 15 18 <br>");
 document.write("<br>");
-document.write(" max(10,15) = 15 => 15 + 8 = 23 <br>");
+document.write(" max(-992,15) = 15 => 15 + 8 = 23 <br>");
 document.write(" max(15,18) = 18 => 18 + 4 = 22 <br>");
 document.write("1 <br>");
 document.write("23 22 <br>");
@@ -122,15 +155,16 @@ function maximumSumOfTheNumbers(array1, array2) {
     var maximumSumOfTheNumbers = 0; //initializing result
     var rowCounter = 1; //initializing and setting the counter of the rows to 1
     var helper = 1;
+    var changedPrime = 0; //if the maximum element of the array 10000, it will be -10000
 
-    document.write("Triangle with primes:  <br>" + ot2 + "<br>");
-    for (var countot2 = 0; countot2 < ot2.length; countot2++) { //loop through "Orthogonal Triangle" array to micrify values which are primes
-        if (isPrime(ot2[countot2])) { //if actual element of the array is prime
-            ot[countot2] = 0; //be 0
-            ot2[countot2] = 0; //be 0
-        }
-    }
-    document.write("Triangle without primes: <br>" + ot2 + "<br>");
+    // document.write("Triangle with primes:  <br>" + ot2 + "<br>");
+    // for (var countot2 = 0; countot2 < ot2.length; countot2++) { //loop through "Orthogonal Triangle" array to micrify values which are primes
+    //     if (isPrime(ot2[countot2])) { //if actual element of the array is prime
+    //         ot[countot2] = changedPrime;
+    //         ot2[countot2] = changedPrime;
+    //     }
+    // }
+    // document.write("Triangle without primes: <br>" + ot2 + "<br>");
 
 
     for (var count = 0; count < ot.length; count++) { //loop through "Orthogonal Triangle" array to get the number of the rows
@@ -149,7 +183,17 @@ function maximumSumOfTheNumbers(array1, array2) {
         for (var element = 0; element < row.length - 1; element++) {
             document.write("Last row's elements two element at a time: " + row[element] + ", " + row[element + 1] + "<br>");
             document.write("and the maximum of them eg.: max(b,c) = " + Math.max(row[element], row[element + 1]) + "<br>");
-            newLastRow.push(Math.max(row[element], row[element + 1])); //add the max values to an empty array
+
+
+            if (isPrime(row[element]) && isPrime(row[element + 1]) && rows === rowCounter) {
+                newLastRow.push(0);
+            } else if (isPrime(row[element]) && rows === rowCounter) {
+                newLastRow.push(row[element + 1])
+            } else if (isPrime(row[element + 1]) && rows === rowCounter) {
+                newLastRow.push(row[element])
+            } else {
+                newLastRow.push(Math.max(row[element], row[element + 1])); //add the max values to an empty array
+            }
         }
         document.write("Triangle: " + ot2 + "<br>");
         document.write("This needs to add to the next last row: " + newLastRow + "<br>");
@@ -164,14 +208,23 @@ function maximumSumOfTheNumbers(array1, array2) {
             ot2.length = 1; //leave the first value only
         }
 
-
+        var rowOriginal = row;
         document.write("Triangle without the last row: " + ot2 + "<br>");
         row = ot2.slice(ot2.length - newLastRow.length); //get old values of next last row
         document.write("Old Values from the next last row: " + row + "<br>");
+        document.write("new Values from last row: " + newLastRow + "<br>");
 
+
+        document.write("rómegváltoztatott: " + row + "<br>");
+        document.write("róeredeti: " + rowOriginal + "<br>");
 
         for (var k = 0; k < newLastRow.length; k++) { //Adding new values to  old values of next last row
-            newLastRow[k] = newLastRow[k] + row[k];
+            if (isPrime(row[k])){
+                document.write("sikítssssssssssssss" + row[k])
+                newLastRow[k] = 0;
+            }else {
+                newLastRow[k] = newLastRow[k] + row[k];
+            }
         }
 
         ot2.length = ot2.length - newLastRow.length; //cutting the end of the triangle
@@ -195,3 +248,5 @@ function maximumSumOfTheNumbers(array1, array2) {
 document.write("The maximum sum of the numbers according to given rules is: " + maximumSumOfTheNumbers(shortArray, shortArray2));
 document.write("<br><br>____________________________________________________________________________________________________________________________________<br><br>");
 document.write("The maximum sum of the numbers according to given rules is: " + maximumSumOfTheNumbers(longArray, longArray2));
+document.write("<br><br>____________________________________________________________________________________________________________________________________<br><br>");
+document.write("The maximum sum of the numbers according to given rules is: " + maximumSumOfTheNumbers(modifiedlongArray, modifiedlongArray2));
